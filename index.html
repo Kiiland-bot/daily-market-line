@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デイリー・マーケットライン | 2026年7月21日</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF7EF;
+    --paper-alt:#F1EBDA;
+    --card:#FFFFFF;
+    --ink:#221F1A;
+    --ink-soft:#5B564C;
+    --ink-faint:#8B8474;
+    --indigo:#1B2A4A;
+    --indigo-soft:#2E4066;
+    --indigo-line:#3E5279;
+    --amber:#C97A2E;
+    --amber-soft:#F0C88A;
+    --up:#B23A2E;
+    --down:#2C5F8A;
+    --ok:#3C6E47;
+    --line:#DED4B9;
+    --shadow: 0 2px 14px rgba(27,42,74,0.08);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Noto Sans JP", -apple-system, sans-serif;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+  h1,h2,h3,.disp{
+    font-family:"Shippori Mincho", serif;
+    font-weight:600;
+    letter-spacing:.02em;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    background:linear-gradient(180deg,var(--indigo) 0%,var(--indigo-soft) 62%,var(--amber) 165%);
+    color:#F3EFE2;
+    padding:34px 20px 26px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:0; height:70px;
+    background:linear-gradient(180deg, rgba(201,122,46,0) 0%, rgba(201,122,46,.55) 100%);
+    pointer-events:none;
+  }
+  .kicker{
+    font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--amber-soft); font-weight:700; margin-bottom:10px;
+  }
+  .hero h1{
+    font-size:28px; margin:0 0 6px; color:#fff; line-height:1.4;
+  }
+  .hero .date-line{
+    font-size:14.5px; color:#D9DCE6; margin-bottom:18px;
+  }
+  .hero-meta{
+    display:flex; gap:10px; flex-wrap:wrap; font-size:12.5px;
+  }
+  .pill{
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.22);
+    border-radius:999px;
+    padding:6px 12px;
+    color:#F3EFE2;
+    display:flex; align-items:center; gap:6px;
+  }
+  .pill b{color:var(--amber-soft); font-weight:700;}
+
+  /* ===== TRAIN LINE NAV (signature element) ===== */
+  .line-nav-wrap{
+    position:sticky; top:0; z-index:50;
+    background:var(--indigo);
+    border-bottom:1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .line-nav{
+    display:flex; align-items:center;
+    overflow-x:auto;
+    padding:12px 16px;
+    gap:0;
+    scrollbar-width:none;
+  }
+  .line-nav::-webkit-scrollbar{display:none;}
+  .stop{
+    flex:0 0 auto;
+    display:flex; flex-direction:column; align-items:center;
+    position:relative;
+    padding:0 16px;
+    text-decoration:none;
+    color:#B9C0D4;
+    font-size:11px;
+    white-space:nowrap;
+  }
+  .stop::before{
+    content:"";
+    position:absolute; top:5px; left:0; right:0; height:2px;
+    background:#4C5C81;
+    z-index:0;
+  }
+  .stop:first-child::before{left:50%;}
+  .stop:last-child::before{right:50%;}
+  .dot{
+    width:11px; height:11px; border-radius:50%;
+    background:#4C5C81; border:2px solid var(--indigo);
+    margin-bottom:6px; z-index:1;
+  }
+  .stop.active{color:#FFF4E2;}
+  .stop.active .dot{background:var(--amber); box-shadow:0 0 0 4px rgba(201,122,46,0.28);}
+  .stop span{font-family:"Noto Sans JP",sans-serif; font-weight:700;}
+
+  /* ===== LAYOUT ===== */
+  main{max-width:640px; margin:0 auto; padding:0 18px;}
+  section{padding:38px 0 6px; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .eyebrow{
+    font-size:12px; color:var(--amber); font-weight:700; letter-spacing:.14em;
+    text-transform:uppercase; margin-bottom:8px;
+  }
+  h2.section-title{
+    font-size:22px; margin:0 0 18px; color:var(--indigo);
+  }
+  p{margin:0 0 14px; font-size:15.5px; color:var(--ink);}
+  .lede{font-size:16.5px; color:var(--ink-soft);}
+
+  /* ===== SUMMARY CARDS ===== */
+  .point-card{
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:16px 18px; margin-bottom:12px; box-shadow:var(--shadow);
+  }
+  .point-card h3{
+    font-size:15.5px; margin:0 0 6px; color:var(--indigo); font-weight:700;
+    font-family:"Noto Sans JP",sans-serif;
+    display:flex; align-items:center; gap:8px;
+  }
+  .point-card h3 .num{
+    background:var(--indigo); color:#fff; font-size:12px; font-weight:700;
+    width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    flex:0 0 auto;
+  }
+  .point-card p{font-size:14.5px; color:var(--ink-soft); margin:0;}
+
+  /* ===== DATA STRIP ===== */
+  .data-strip{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:18px 0 24px;
+  }
+  .data-box{
+    background:var(--paper-alt); border-radius:12px; padding:12px 14px;
+  }
+  .data-box .lbl{font-size:11.5px; color:var(--ink-faint); margin-bottom:4px;}
+  .data-box .val{font-size:17px; font-weight:700; font-family:"Shippori Mincho",serif;}
+  .val.up{color:var(--up);}
+  .val.down{color:var(--down);}
+
+  /* ===== STOCK CARDS ===== */
+  .stock-card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:20px; margin-bottom:18px; box-shadow:var(--shadow);
+  }
+  .stock-head{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    margin-bottom:6px; gap:10px;
+  }
+  .stock-name{font-family:"Shippori Mincho",serif; font-size:19px; font-weight:600; color:var(--indigo);}
+  .stock-code{font-size:12.5px; color:var(--ink-faint); font-weight:500;}
+  .theme-tag{
+    flex:0 0 auto;
+    background:var(--indigo); color:#F3EFE2; font-size:11px; font-weight:700;
+    padding:5px 10px; border-radius:999px; white-space:nowrap;
+  }
+  .stock-body p{font-size:14.5px; color:var(--ink-soft); margin-bottom:14px;}
+  .case-grid{display:flex; flex-direction:column; gap:12px;}
+  .case{
+    border-radius:10px; padding:12px 14px;
+  }
+  .case.bull{background:#FBF1E6; border-left:3px solid var(--amber);}
+  .case.bear{background:#EEF2F6; border-left:3px solid var(--down);}
+  .case .case-label{font-size:12px; font-weight:700; margin-bottom:6px; display:block;}
+  .case.bull .case-label{color:var(--amber);}
+  .case.bear .case-label{color:var(--down);}
+  .case ul{margin:0; padding-left:18px;}
+  .case li{font-size:13.8px; color:var(--ink); margin-bottom:5px; line-height:1.7;}
+
+  .disclaimer-inline{
+    font-size:12px; color:var(--ink-faint); background:var(--paper-alt);
+    border-radius:10px; padding:10px 14px; margin:6px 0 26px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--indigo); color:#C9CEDC; padding:34px 20px 44px; margin-top:20px;
+  }
+  footer .foot-inner{max-width:640px; margin:0 auto;}
+  footer h3{color:#fff; font-size:17px; margin:0 0 10px;}
+  footer p{color:#C9CEDC; font-size:13.5px; line-height:1.85;}
+  .sources{font-size:11.5px; color:#8D96B3; margin-top:18px; line-height:1.9;}
+  .foot-divider{height:1px; background:rgba(255,255,255,0.12); margin:22px 0;}
+
+  .divider-note{
+    text-align:center; font-size:12px; color:var(--ink-faint); padding:16px 0 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="kicker">Daily Market Line &middot; 毎朝6:00 JST 更新想定</div>
+  <h1>デイリー・マーケットライン</h1>
+  <div class="date-line">2026年7月21日（火）朝刊 &nbsp;|&nbsp; 通勤の途中に読む、経済・株式ブリーフィング</div>
+  <div class="hero-meta">
+    <span class="pill">推定読了時間 &nbsp;<b id="readTime">計測中…</b></span>
+    <span class="pill">全<b id="charCount">-</b>文字</span>
+  </div>
+</div>
+
+<div class="line-nav-wrap">
+  <nav class="line-nav" id="lineNav">
+    <a class="stop" data-target="point" href="#point"><span class="dot"></span><span>要点</span></a>
+    <a class="stop" data-target="domestic" href="#domestic"><span class="dot"></span><span>国内</span></a>
+    <a class="stop" data-target="overseas" href="#overseas"><span class="dot"></span><span>海外</span></a>
+    <a class="stop" data-target="manufacturing" href="#manufacturing"><span class="dot"></span><span>製造業</span></a>
+    <a class="stop" data-target="market" href="#market"><span class="dot"></span><span>株式市場</span></a>
+    <a class="stop" data-target="jp-stocks" href="#jp-stocks"><span class="dot"></span><span>日本株</span></a>
+    <a class="stop" data-target="us-stocks" href="#us-stocks"><span class="dot"></span><span>米国株</span></a>
+    <a class="stop" data-target="summary" href="#summary"><span class="dot"></span><span>まとめ</span></a>
+  </nav>
+</div>
+
+<main id="readable">
+
+  <section id="point">
+    <div class="eyebrow">Stop 1 &middot; 出発</div>
+    <h2 class="section-title">今日のポイント</h2>
+    <p class="lede">忙しい朝でもここだけ読めば全体像がつかめます。詳細は各セクションへ。</p>
+
+    <div class="point-card">
+      <h3><span class="num">1</span>中東情勢が最大の変数</h3>
+      <p>米国とイランの軍事衝突が長期化の様相です。米中央軍は連日イラン国内の軍事目標への攻撃を継続し、ホルムズ海峡を通過する船舶の安全確保をめぐる緊張が続いています。原油（北海ブレント）は一時1バレル91ドル台まで急伸し、6月中旬以来の高値圏です。</p>
+    </div>
+    <div class="point-card">
+      <h3><span class="num">2</span>円は約39年半ぶりの安値水準</h3>
+      <p>原油高による貿易収支悪化観測が円売り材料となる一方、FRBの利上げ観測後退がドル売り圧力となり、方向感を探る展開が続いています。</p>
+    </div>
+    <div class="point-card">
+      <h3><span class="num">3</span>日本株は反発待ちの調整局面</h3>
+      <p>日経平均は半導体関連株の利益確定売りで5営業日続落し、7月17日に6万4141円まで下落。市場では21〜24日の週について自律反発を見込む声が出ています。</p>
+    </div>
+    <div class="point-card">
+      <h3><span class="num">4</span>米国株は決算とイラン情勢を天秤に</h3>
+      <p>ダウ・S&amp;P・ナスダックはまちまちの値動き。決算シーズンは好調（8割超が予想上回る）ですが、良い決算でも売られる場面が目立ちます。今週はGM、アルファベット、テスラが決算を発表。</p>
+    </div>
+    <div class="point-card">
+      <h3><span class="num">5</span>製造業の景況感は8年ぶりの高水準</h3>
+      <p>6月の日銀短観で大企業製造業の業況判断DIが5期連続改善のプラス22。AI・半導体需要が押し上げる一方、原油高・円安のコスト増が先行き懸念材料です。</p>
+    </div>
+  </section>
+
+  <section id="domestic">
+    <div class="eyebrow">Stop 2 &middot; 国内経済</div>
+    <h2 class="section-title">国内経済ニュース</h2>
+
+    <p>日本株式市場は方向感を模索する展開が続いています。日経平均株価は7月13日から17日にかけて5営業日続けて下落し、17日の終値は前日比2694円42銭（4.03％）安の6万4141円12銭。直近のピーク（6月25日の7万2366円34銭）から大きく水準を切り下げました。下落の主因は、AI・半導体関連株への急速な資金流入の反動とみられています。台湾積体電路製造（TSMC）が発表した4〜6月期決算は市場予想を上回る好内容でしたが、AI需要の強さがすでに株価に織り込まれていたため、発表を受けてむしろ「材料出尽くし」の売りが優勢になりました。半導体比重の大きい韓国総合株価指数（KOSPI）が同時期に7％を超える急落を見せたことも、東京市場の半導体関連株への売り圧力を強めた形です。もっとも、直近の報道では、7月20〜24日の週について、売られすぎた反動からの自律反発を見込む声が紹介されています。</p>
+
+    <div class="data-strip">
+      <div class="data-box"><div class="lbl">日経平均（7/17終値）</div><div class="val down">64,141円 (-4.03%)</div></div>
+      <div class="data-box"><div class="lbl">年初来高値（6/25）</div><div class="val">72,366円</div></div>
+    </div>
+
+    <p>為替市場では、円が約39年半ぶりとなる歴史的な安値水準を試す展開が続いています。中東情勢の緊迫化に伴う原油高が日本の貿易収支の悪化観測を通じて円売り材料となる一方、FRBの利上げ観測後退によるドル売り圧力も働いており、方向感の定まりにくい相場です。</p>
+
+    <p>金融政策面では、日本銀行は2026年に入り利上げを進めており、市場では年内にもう一段の追加利上げがあるとの見方が中心です。次回のタイミングは10月や12月の会合が有力視され、政策金利は将来的に1.5〜1.75％程度まで引き上げられるとの民間エコノミスト予測も出ています。</p>
+
+    <p>政策面では、自民党と日本維新の会が社会保障改革の骨子で合意し、70歳以上の医療費窓口負担のあり方を見直す方向性が示されました。また内閣府は「世界経済の潮流」と題した報告書で、中東情勢の悪化にもかかわらず主要32カ国・地域による石油備蓄の協調放出などが下支えとなり、2026年上半期時点でアジア経済の急減速は回避されたとの分析を示しています。</p>
+
+    <p>生活・消費関連では、経団連の集計によると今年の夏のボーナスは大企業で平均100万円と過去最高水準に達する見通しです。一方、原油高・円安を背景とした物価上昇に加え、夏の海外旅行者数は燃油サーチャージの上昇と円安を理由に前年比8.8％減少するとの民間調査結果もあり、家計への影響は引き続き注視が必要です。</p>
+  </section>
+
+  <section id="overseas">
+    <div class="eyebrow">Stop 3 &middot; 海外経済</div>
+    <h2 class="section-title">海外経済ニュース</h2>
+
+    <p>米国とイランの軍事衝突が、世界経済にとって最大のリスク要因になっています。米中央軍（CENTCOM）は7月に入ってから連日、ホルムズ海峡を通過する船舶を脅かす軍事目標への攻撃を継続していると発表しており、一部報道では米軍側にも複数日にわたり死者が出ていることが伝えられています。イラン側もカタールやアラブ首長国連邦（UAE）周辺の米軍関連施設への攻撃を拡大しているとされ、6月に一時成立した停戦の枠組みは事実上機能していない状況です。</p>
+
+    <p>この結果、原油相場は大きく上下に振れる展開となっています。北海ブレント原油先物は7月20日早朝の取引で一時1バレル91ドル台まで急伸し、前週末比で約4％上昇しました。米国の指標であるWTI原油先物も1バレル85ドル前後まで上昇し、いずれも6月中旬以来の高値水準です。クウェート国営石油会社は、イランの攻撃により国内の石油関連施設が相当の被害を受けたと発表しており、供給不安がくすぶっています。湾岸産油国がホルムズ海峡の外側に原油を移送する「シャトル輸送」にも支障が出ているとの指摘があり、原油価格が100ドルを超える可能性を排除できないとの見方も出ています。</p>
+
+    <div class="data-strip">
+      <div class="data-box"><div class="lbl">ブレント原油（一時）</div><div class="val up">91ドル台</div></div>
+      <div class="data-box"><div class="lbl">ユーロ圏6月CPI</div><div class="val">+2.8%（前年比）</div></div>
+    </div>
+
+    <p>米国の金融政策を巡っては、FRBの次の一手について利上げ観測が後退している一方、原油高によるインフレ再燃リスクが利下げ判断を難しくしているとの分析も出ています。市場は今週発表される経済指標や当局者発言に注目しています。</p>
+
+    <p>欧州では、ユーロ圏の6月消費者物価指数（速報値）が前年同月比2.8％上昇と市場予想（3.0％）を下回り、5月の3.2％からも伸びが鈍化しました。中東情勢の緊迫化に伴うエネルギー価格の上昇圧力が一服したことが背景とされています。</p>
+
+    <p>通商面では、米連邦最高裁が今年2月に無効と判断した「相互関税」の代替措置としてトランプ大統領が発動した経過的な関税が7月24日に失効する予定です。トランプ政権は失効後、通商法301条に基づく新たな関税措置に移行する方針とされていますが、各国からは早くも見直しを求める声が出ており、通商政策を巡る不透明感は当面続きそうです。</p>
+  </section>
+
+  <section id="manufacturing">
+    <div class="eyebrow">Stop 4 &middot; 製造業</div>
+    <h2 class="section-title">製造業ニュース</h2>
+
+    <p>日本銀行が7月1日に発表した6月調査の「短観」では、大企業製造業の業況判断DI（「良い」と答えた企業の割合から「悪い」の割合を差し引いた指数）が、前回3月調査から5ポイント改善のプラス22となりました。5四半期連続の改善で、水準としては約8年ぶりの高さです。事前の民間エコノミスト予測は悪化を見込んでいただけに、市場予想を大きく上回る結果となりました。</p>
+
+    <div class="data-strip">
+      <div class="data-box"><div class="lbl">大企業製造業DI</div><div class="val up">+22（5期連続改善）</div></div>
+      <div class="data-box"><div class="lbl">26年度設備投資計画</div><div class="val up">+11.5%（上方修正）</div></div>
+    </div>
+
+    <p>業種別に見ると、世界的なAI・半導体関連需要の拡大を背景に、生産用機械や電気機械、非鉄金属などで改善が続いていることが全体を押し上げました。一方、石油・石油製品などでは中東情勢に伴うサプライチェーンの混乱の影響が残っているとみられています。</p>
+
+    <p>設備投資計画についても強気な内容が示されました。2026年度の設備投資計画（全規模・全産業ベース）は前年度比11.5％増となり、前回調査から7.2ポイントの大幅な上方修正となりました。製造業に限ると10.1％増（前回調査の4.7％から上方修正）で、省力化投資や更新投資に加え、能力増強に向けた需要が引き続き強いことがうかがえます。</p>
+
+    <p>個別企業の動きでは、京セラが2031年3月期までに、半導体製造装置向けのセラミック部品や、データセンターの伝送を担う光通信用セラミックパッケージを中心とする部品事業に6500億円を投じる計画を明らかにしています。これは2025年3月期までの6年間の投資額と比べて2割の積み増しにあたり、2026年9月に稼働予定の長崎県諫早市の新工場などが投資対象です。AI関連の設備投資意欲の強さを象徴する動きといえます。</p>
+
+    <p>もっとも、先行きに対する見通しはやや慎重です。短観の3カ月後の業況判断DI見通しは製造業でプラス17と、現状よりも悪化する見込みが示されています。原油高や円安によるコスト増、中東情勢の長期化リスクが、先行き懸念として意識されているとみられます。</p>
+
+    <p>海外に目を向けると、AI関連の設備投資は製造業のあり方そのものを変えつつあります。象徴的なのが、建設・鉱山機械大手の米キャタピラーです。同社はAIデータセンター向け発電用エンジン・タービンの需要拡大を追い風に、電力・エネルギー部門の売上高が四半期ベースで前年比20％超の伸びを記録しており、伝統的な重機メーカーから「AI時代の電力インフラ企業」へと投資家の見方が変わりつつあります（詳細は後述の注目銘柄で解説）。半導体受託生産最大手のTSMCも4〜6月期に市場予想を上回る大幅増益を確保しており、世界の製造業の中でAI関連需要が最大の成長ドライバーになっている構図が改めて確認されています。</p>
+  </section>
+
+  <section id="market">
+    <div class="eyebrow">Stop 5 &middot; 株式市場</div>
+    <h2 class="section-title">株式市場ニュース</h2>
+
+    <p><strong>日本株：</strong>日経平均株価は7月17日時点で6万4141円12銭。年初来高値（7万2366円34銭、6月25日）からは1割以上調整した水準です。直近5営業日は続落となりましたが、主因はAI・半導体関連株への利益確定売りであり、内閣府や日銀が示す景況感データそのものは総じて底堅い内容が続いています。東証プライム市場の売買代金は1日あたり6兆円台後半と高水準で推移し、値下がり銘柄数が全体の7割を超える場面もあるなど値動きの荒さが目立っています。個別には、キオクシアやフジクラ、太陽誘電など半導体関連銘柄の値動きが相場全体を左右する展開が続いています。</p>
+
+    <p><strong>米国株：</strong>7月20日の取引では、ダウ工業株30種平均が0.6％安、S&amp;P500が0.2％安となった一方、ナスダック総合はほぼ横ばいで終えました。半導体株が上昇して始まった後に伸び悩む展開となり、原油価格が1バレル90ドルに接近する場面もあったことが投資家心理の重しになりました。7月18日には米国とイランの軍事衝突を巡る懸念からS&amp;P500が0.19％安の7443.28、ナスダック総合が0.05％安の2万5508.07、ダウ平均が0.59％安の5万1839.26で取引を終えています。</p>
+
+    <div class="data-strip">
+      <div class="data-box"><div class="lbl">S&amp;P500（7/18）</div><div class="val down">7,443.28 (-0.19%)</div></div>
+      <div class="data-box"><div class="lbl">ナスダック総合（7/18）</div><div class="val down">25,508.07 (-0.05%)</div></div>
+    </div>
+
+    <p>決算シーズンは佳境に入りつつあります。7月19日時点でS&amp;P500採用企業のうち決算を発表した企業の86％超が市場予想を上回る結果を出しており、決算内容自体は総じて堅調です。もっとも「決算が良くても株価が売られる」場面も目立ち、投資家の関心は決算内容そのものよりも、企業のガイダンス（業績見通し）や設備投資計画に移っているとの指摘があります。今週はゼネラル・モーターズ（21日）に続き、22日にはアルファベットとテスラが決算を発表する予定で、AI関連の設備投資に対するリターンを裏付けられるかが焦点になります。</p>
+  </section>
+
+  <section id="jp-stocks">
+    <div class="eyebrow">Stop 6 &middot; 日本株ウォッチリスト</div>
+    <h2 class="section-title">今日の注目銘柄・日本編</h2>
+    <p class="lede">今日のニュースの流れに関連が深く、値動きの背景を追う価値がある5銘柄をピックアップしました。強気材料とリスクの両面を並べています。特定銘柄の売買を推奨するものではありません。</p>
+
+    <div class="stock-card">
+      <div class="stock-head">
+        <div><span class="stock-name">アドバンテスト</span><br><span class="stock-code">6857・東証プライム</span></div>
+        <div class="theme-tag">AI半導体テスト装置</div>
+      </div>
+      <div class="stock-body">
+        <p>半導体の検査・テスト装置で世界的なシェアを持ち、AI向け先端半導体の需要拡大を背景に業績拡大が続いてきた代表銘柄。直近は半導体株全般の利益確定売りで調整していますが、自律反発の期待が集まる銘柄の一つです。</p>
+        <div class="case-grid">
+          <div class="case bull"><span class="case-label">強気材料</span>
+            <ul>
+              <li>AIサーバー向け先端半導体の検査需要は中長期的な拡大が見込まれる</li>
+              <li>短観でも生産用機械などAI関連業種の業況判断が改善し、需要の裾野の広がりが確認できる</li>
+              <li>米国ハイテク株が上昇した局面では、東京市場でも連動して買いが入りやすい</li>
+            </ul>
+          </div>
+          <div class="case bear"><span class="case-label">リスク・留意点</span>
+            <ul>
+              <li>半導体関連株は世界的に値動きが荒く、短期の需給や海外市場に左右されやすい</li>
+              <li>株価水準はすでに高値圏で、バリュエーションの高さを指摘する声もある</li>
+              <li>原油高によるコスト増や、対中半導体規制などの地政学リスクの影響を受けやすい</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-head">
+        <div><span class="stock-name">東京エレクトロン</span><br><span class="stock-code">8035・東証プライム</span></div>
+        <div class="theme-tag">半導体製造装置</div>
+      </div>
+      <div class="stock-body">
+        <p>半導体製造装置の国内最大手。AI関連の設備投資拡大を追い風に、主要顧客からの納期前倒し要求が相次いでいると経営陣が説明するなど、旺盛な需要を捉えています。</p>
+        <div class="case-grid">
+          <div class="case bull"><span class="case-label">強気材料</span>
+            <ul>
+              <li>AI半導体の生産能力増強に伴う、世界の半導体メーカーの設備投資意欲が引き続き強い</li>
+              <li>短観の製造業設備投資計画が大幅に上方修正され、投資サイクルの強さを裏付けている</li>
+              <li>主要顧客からの納期前倒し要請が伝えられるなど、受注環境の良さを示すニュースが続く</li>
+            </ul>
+          </div>
+          <div class="case bear"><span class="case-label">リスク・留意点</span>
+            <ul>
+              <li>半導体製造装置は景気サイクルの影響を受けやすく、AI需要一服の影響は大きい</li>
+              <li>米中対立や輸出規制強化など、地政学要因による事業環境変化のリスクがある</li>
+              <li>株価はすでに高い期待を織り込んでおり、決算が期待に届かない場合の反動に注意</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-head">
+        <div><span class="stock-name">三菱UFJフィナンシャル・グループ</span><br><span class="stock-code">8306・東証プライム</span></div>
+        <div class="theme-tag">金利上昇・金融</div>
+      </div>
+      <div class="stock-body">
+        <p>国内メガバンクの一角で、日銀の利上げ局面における代表的な恩恵銘柄。直近の調整局面では値下がりが目立つ場面もありましたが、中長期の金利上昇シナリオの中で改めて注目されています。</p>
+        <div class="case-grid">
+          <div class="case bull"><span class="case-label">強気材料</span>
+            <ul>
+              <li>日銀の追加利上げが年内にも実施されるとの見方が中心で、貸出金利上昇による収益改善が期待される</li>
+              <li>米JPモルガンなど海外大手金融機関でボラティリティ拡大を追い風にしたトレーディング収益急増が確認されており、同様の機会が金融株全体に及ぶ可能性</li>
+              <li>個人株主数が過去最多を更新するなど、株式市場への資金流入の裾野が広がっている</li>
+            </ul>
+          </div>
+          <div class="case bear"><span class="case-label">リスク・留意点</span>
+            <ul>
+              <li>金利上昇そのものが債券評価損など別のリスクを生む可能性がある</li>
+              <li>中東情勢の悪化が世界経済の下振れリスクとなれば、与信コストに影響が及ぶ可能性</li>
+              <li>市場全体のボラティリティが高まる局面では、金融株も他銘柄同様に売られやすい</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-head">
+        <div><span class="stock-name">フジクラ</span><br><span class="stock-code">5803・東証プライム</span></div>
+        <div class="theme-tag">AIデータセンター向け光通信</div>
+      </div>
+      <div class="stock-body">
+        <p>電線大手で、AIデータセンター向けの光通信インフラ需要拡大を背景に株価が大きく見直された銘柄の一つ。6月には日経平均のプラス寄与度上位に名を連ねました。</p>
+        <div class="case-grid">
+          <div class="case bull"><span class="case-label">強気材料</span>
+            <ul>
+              <li>生成AI普及に伴うデータセンター新設ラッシュで、光ファイバーや関連部材の需要が世界的に拡大</li>
+              <li>直近の調整局面でも上昇する場面があるなど、相対的な値動きの強さが確認されている</li>
+              <li>AI関連の設備投資は短観でも裏付けられており、需要の広がりへの期待が高い</li>
+            </ul>
+          </div>
+          <div class="case bear"><span class="case-label">リスク・留意点</span>
+            <ul>
+              <li>短期間で大きく上昇した銘柄のため値動きが荒く、利益確定売りが出やすい</li>
+              <li>データセンター投資のペースが期待ほど拡大しなければ、成長期待の修正リスクがある</li>
+              <li>銅などの原材料価格の変動が採算に影響する可能性</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-head">
+        <div><span class="stock-name">三菱重工業</span><br><span class="stock-code">7011・東証プライム</span></div>
+        <div class="theme-tag">防衛・エネルギープラント</div>
+      </div>
+      <div class="stock-body">
+        <p>総合重工業大手。日本政府の防衛力強化方針を背景とした防衛関連事業の拡大に加え、エネルギープラント事業の需要拡大で受注高が過去最高水準に。2025年度通期の受注高は7兆6536億円（前期比19.5％増）。株価は2026年3月の上場来高値（5208円）から現在は3900円台へ調整しており、次回決算は8月4日発表予定です。</p>
+        <div class="case-grid">
+          <div class="case bull"><span class="case-label">強気材料</span>
+            <ul>
+              <li>日本政府の防衛力強化方針のもと、ミサイル防衛や艦艇、航空機などの受注が拡大</li>
+              <li>エネルギー・防衛・航空宇宙分野の大型案件が業績を牽引し、受注残も高水準を維持</li>
+              <li>上場来高値からの調整により、過去と比べて相対的な株価水準は下がっている</li>
+            </ul>
+          </div>
+          <div class="case bear"><span class="case-label">リスク・留意点</span>
+            <ul>
+              <li>2026年3月の高値から大きく調整しており、期待先行だった反動が出た可能性</li>
+              <li>地政学リスクの動向次第では、原材料コストや供給網に影響が及ぶ可能性</li>
+              <li>防衛関連事業は政府予算や政策動向に業績が左右されやすい</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disclaimer-inline">上記は本日のニュースとの関連性に基づく情報整理であり、購入を推奨するものではありません。</div>
+  </section>
+
+  <section id="us-stocks">
+    <div class="eyebrow">Stop 7 &middot; 米国株ウォッチリスト</div>
+    <h2 class="section-title">今日の注目銘柄・米国編</h2>
+
+    <div class="stock-card">
+      <div class="stock-head">
+        <div><span class="stock-name">Exxon Mobil</span><br><span class="stock-code">XOM・NYSE</span></div>
+        <div class="theme-tag">エネルギー・原油高</div>
+      </div>
+      <div class="stock-body">
+        <p>米石油メジャー最大手。中東情勢の緊迫化に伴う原油価格上昇の直接的な恩恵を受ける銘柄で、43年連続増配の「配当貴族」。2026年には200億ドル規模の自社株買いを計画しています。</p>
+        <div class="case-grid">
+          <div class="case bull"><span class="case-label">強気材料</span>
+            <ul>
+              <li>ブレント原油が1バレル90ドル台まで上昇するなど、中東情勢の緊迫化が収益環境の追い風に</li>
+              <li>2019年以降で156億ドルの構造的コスト削減を達成し、コスト規律の高さが評価されている</li>
+              <li>43年連続増配、配当利回り約3％と、インカム狙いの投資家からの安定した需要が見込める</li>
+            </ul>
+          </div>
+          <div class="case bear"><span class="case-label">リスク・留意点</span>
+            <ul>
+              <li>過去の緊迫局面では原油急伸でもエネルギー株が連動して上がらない「材料出尽くし」も見られ、地政学リスクと株価が単純に連動するとは限らない</li>
+              <li>原油価格が短期的に急落すれば、収益予想の下方修正リスクがある</li>
+              <li>世界的な脱炭素の潮流の中長期的な影響も無視できない</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-head">
+        <div><span class="stock-name">Northrop Grumman</span><br><span class="stock-code">NOC・NYSE</span></div>
+        <div class="theme-tag">防衛</div>
+      </div>
+      <div class="stock-body">
+        <p>ステルス爆撃機やミサイル防衛システムを手掛ける防衛大手。米国とイランの軍事衝突長期化の中、ロッキード・マーティンやRTXと並び、バリュエーションと地政学的関連性を兼ね備えた銘柄として市場のスクリーニングで名前が挙がっています。</p>
+        <div class="case-grid">
+          <div class="case bull"><span class="case-label">強気材料</span>
+            <ul>
+              <li>米国とイランの軍事衝突が9日以上連続するなど長期化の様相で、防衛予算拡大への期待が高まる</li>
+              <li>ステルス爆撃機やミサイル防衛、情報・偵察分野など、現在の軍事作戦で重視される領域に強み</li>
+              <li>直近1カ月で株価が8％超上昇するなど、セクター内で相対的に強い値動き</li>
+            </ul>
+          </div>
+          <div class="case bear"><span class="case-label">リスク・留意点</span>
+            <ul>
+              <li>同業のロッキード・マーティンは紛争開始後にフリーキャッシュフローが急減する決算もあり、「有事の防衛株高」が必ずしも業績に直結しない例もある</li>
+              <li>防衛予算は政治プロセスに左右され、想定通りに拡大するとは限らない</li>
+              <li>紛争が想定より早期に収束すれば、地政学リスクプレミアムが剥落する可能性</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-head">
+        <div><span class="stock-name">Alphabet</span><br><span class="stock-code">GOOGL・Nasdaq</span></div>
+        <div class="theme-tag">AI・クラウド／決算7/22</div>
+      </div>
+      <div class="stock-body">
+        <p>グーグルの親会社。7月22日（米国時間）に4〜6月期決算を発表予定で、今週の米国株市場で最大級の注目イベントの一つです。1〜3月期は売上高が前年同期比22％増の1099億ドルに達し、クラウドと検索が牽引しました。</p>
+        <div class="case-grid">
+          <div class="case bull"><span class="case-label">強気材料</span>
+            <ul>
+              <li>直近9四半期連続で市場予想を上回る決算を発表しており、決算に対する信頼感が相対的に高い</li>
+              <li>グーグルクラウド事業の成長が続き、AI関連需要の取り込みが進んでいるとみられる</li>
+              <li>マグニフィセント・セブンの中では相対的にPERが低く、割安感を指摘する声がある</li>
+            </ul>
+          </div>
+          <div class="case bear"><span class="case-label">リスク・留意点</span>
+            <ul>
+              <li>クラウド採算性やAI設備投資規模への市場の期待が高く、決算が届かなければ株価下落リスク</li>
+              <li>広告事業は規制強化や景気動向の影響を受けやすい</li>
+              <li>AI設備投資競争の激化で、投資対効果の証明を市場から求められている</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-head">
+        <div><span class="stock-name">Caterpillar</span><br><span class="stock-code">CAT・NYSE</span></div>
+        <div class="theme-tag">AI電力インフラ・製造業</div>
+      </div>
+      <div class="stock-body">
+        <p>建設・鉱山機械の世界大手。AIデータセンター向け発電用エンジン・タービン需要の拡大を追い風に2026年に株価が急伸し、6月22日には初めて1000ドルを突破（年初来+78％超）。シェブロンとマイクロソフトの天然ガス供給契約に関連するテキサス州のAIデータセンターにも発電設備を供給しています。</p>
+        <div class="case-grid">
+          <div class="case bull"><span class="case-label">強気材料</span>
+            <ul>
+              <li>受注残高がAI関連プロジェクト中心に過去最高の630億ドル（前年比79％増）に達し、業績の先行き視界が良い</li>
+              <li>1〜3月期売上高は前年同期比22％増の174億ドルで市場予想を大きく上回った</li>
+              <li>32年連続増配の「配当貴族」。直近も配当を8％引き上げるなど株主還元に積極的</li>
+            </ul>
+          </div>
+          <div class="case bear"><span class="case-label">リスク・留意点</span>
+            <ul>
+              <li>株価はすでに直近12カ月予想利益の51倍程度まで買われ、機械セクター同業と比べても評価が高い</li>
+              <li>アナリスト平均目標株価が現在の株価を下回っており、バリュエーション過熱を指摘する声も</li>
+              <li>2026年通期で22〜24億ドル規模の関税コストが見込まれ、8月4日の決算での利益率への影響が焦点</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-head">
+        <div><span class="stock-name">JPMorgan Chase</span><br><span class="stock-code">JPM・NYSE</span></div>
+        <div class="theme-tag">金融・トレーディング収益</div>
+      </div>
+      <div class="stock-body">
+        <p>米国最大手銀行。7月14日発表の4〜6月期決算で四半期として過去最高の純利益を計上。株式トレーディング部門の収益は前年同期比86％増の60億3000万ドルに達し、中東情勢に伴う市場のボラティリティ拡大を収益機会に変えました。</p>
+        <div class="case-grid">
+          <div class="case bull"><span class="case-label">強気材料</span>
+            <ul>
+              <li>全事業部門で過去最高の収益を記録し、規模・収益力の両面で業界随一の地位を維持</li>
+              <li>株式・債券トレーディング収益が合計121億ドルと四半期ベースで過去最高を更新</li>
+              <li>投資銀行業務の手数料収入も前年比30％増の33億ドルと2021年以来の高水準</li>
+            </ul>
+          </div>
+          <div class="case bear"><span class="case-label">リスク・留意点</span>
+            <ul>
+              <li>好決算にもかかわらず発表当日の株価は下落する場面もあり、好業績がすでに織り込まれていた可能性</li>
+              <li>ダイモンCEOは地政学リスクや高水準の政府債務、資産価格の割高感を「水面下で進行するリスク」として警戒</li>
+              <li>トレーディング収益は市場のボラティリティ依存度が大きく、市場が落ち着けば反動減の可能性</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disclaimer-inline">上記は本日のニュースとの関連性に基づく情報整理であり、購入を推奨するものではありません。</div>
+  </section>
+
+  <section id="summary">
+    <div class="eyebrow">Stop 8 &middot; 到着</div>
+    <h2 class="section-title">まとめ</h2>
+    <p>今日の相場を動かす最大の変数は、依然として米国とイランの軍事衝突と原油価格の動向です。そこに日米の金融政策、決算シーズン、通商政策（相互関税の失効）が絡み合い、方向感の乏しい展開が続いています。製造業の実態面ではAI・半導体需要が世界的な成長ドライバーであり続けている点が、目先のボラティリティとは別の中長期的な視点として押さえておきたいポイントです。</p>
+
+    <div class="disclaimer-inline" style="font-size:12.5px; line-height:1.8;">
+      本ページは情報提供を目的として作成したものであり、特定の金融商品の売買を推奨・勧誘するものではありません。個別銘柄に関する記述は、報道されたニュースとの関連性を整理したものであり、将来の株価動向を保証するものではありません。投資に関する最終判断は、ご自身の責任と判断で行ってください。本ページの作成者は金融アドバイザーではありません。
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <h3>このブリーフィングについて</h3>
+    <p>2026年7月21日時点で確認できた報道・公表資料をもとに作成した、個人利用向けの朝刊です。市場は常に変動するため、実際の取引の際は最新の株価・ニュースを別途ご確認ください。</p>
+    <div class="foot-divider"></div>
+    <div class="sources">
+      主な情報源：日本経済新聞、Bloomberg、ロイター、CNBC、Yahoo!ファイナンス、TheStreet、Benzinga Japan、TradingKey、日本銀行、内閣府、大和総研、三菱UFJ銀行、EBC Financial Group、Morningstar、かぶリッジ　ほか（2026年7月21日時点の公開情報）
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reading time + char count
+  (function(){
+    var text = document.getElementById('readable').innerText || "";
+    var chars = text.replace(/\s/g,'').length;
+    var minutes = Math.max(1, Math.round(chars / 550)); // ~550 chars/min average reading pace
+    document.getElementById('readTime').textContent = "約" + minutes + "分";
+    document.getElementById('charCount').textContent = chars.toLocaleString();
+  })();
+
+  // Scrollspy for line-nav
+  (function(){
+    var stops = Array.prototype.slice.call(document.querySelectorAll('.stop'));
+    var sections = stops.map(function(s){ return document.getElementById(s.dataset.target); });
+    function setActive(id){
+      stops.forEach(function(s){ s.classList.toggle('active', s.dataset.target === id); });
+      var activeStop = stops.find(function(s){ return s.dataset.target === id; });
+      if(activeStop){
+        activeStop.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+      }
+    }
+    if('IntersectionObserver' in window){
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){ setActive(entry.target.id); }
+        });
+      }, {rootMargin:'-40% 0px -55% 0px', threshold:0});
+      sections.forEach(function(sec){ if(sec) observer.observe(sec); });
+    }
+    stops[0] && stops[0].classList.add('active');
+  })();
+</script>
+
+</body>
+</html>
